@@ -25,8 +25,31 @@ $ git clone https://github.com/ht0919/docker-temp.git
 $ cd docker-temp
 $ docker-compose run web rails new . --force --database=mysql
 $ docker-compose build
-※config/database.yml の host: localhost を host: db に修正
+```
+
+- config/database.yml の host: localhost を host: db に修正
+
+```
 $ docker-compose up -d
 $ docker-compose run web rake db:create
-※ブラウザで http://localhost:3000/ を表示
 ```
+- ブラウザで http://localhost:3000/ を表示
+
+## Docker Composeの使い方
+
+- 開始：docker-compose up -d
+- 状態：docker-compose top
+- 接続：docker exec -it cent6_web_1 bash
+- 停止：docker-compose down
+
+## コンテナとイメージの操作
+
+- コンテナの表示：docker ps -a
+- コンテナの削除：docker rm <コンテナid>
+- イメージの表示：docker images
+- イメージの削除：docker rmi <イメージid>
+
+## 一括削除
+
+- コンテナの一括削除：docker ps -aq | xargs docker rm
+- イメージの一括削除：docker images -aq | xargs docker rmi
