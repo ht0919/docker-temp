@@ -39,7 +39,7 @@ $ docker-compose run web rake db:create
 
 - 開始：docker-compose up -d
 - 状態：docker-compose top
-- 接続：docker exec -it cent6_web_1 bash
+- 接続：docker exec -it <コンテナid> bash
 - 停止：docker-compose down
 
 ## コンテナとイメージの操作
